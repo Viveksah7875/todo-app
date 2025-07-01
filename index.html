@@ -4,46 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>To-Do App with Enter Key</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-    }
-
-    input, button {
-      padding: 8px;
-      font-size: 16px;
-      border:2px solid black;
-    }
-
-    ul {
-      margin-top: 20px;
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      padding: 8px;
-      margin-bottom: 10px;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 4px;
-    }
-
-    .delete-btn {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 4px 8px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button{
-      background-color:yellow;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -54,50 +15,6 @@
 
   <ul id="itemList"></ul>
 
-  <script>
-    const input=document.querySelector("input")
-   
-    // input.getAttribute("placeholder")
-    input.style.fontFamily= "monospace"
-    
-    // ✅ Enter key listener
-    document.getElementById("itemInput").addEventListener("keypress", function (event) {
-      if (event.key === "Enter") {
-        addItem();
-      }
-    });
-
-    // ✅ Main function to add task
-    function addItem() {
-      const input = document.getElementById("itemInput");
-      const value = input.value.trim();
-
-      if (value === "") {
-        alert("Please enter something!");
-        return;
-      }
-
-      const li = document.createElement("li");
-
-      const span = document.createElement("span");
-      span.innerText = value;
-
-      const delBtn = document.createElement("button");
-      delBtn.innerText = "❌";
-      delBtn.classList.add("delete-btn");
-
-      delBtn.addEventListener("click", () => {
-        li.remove();
-      });
-
-      li.appendChild(span);
-      li.appendChild(delBtn);
-
-      document.getElementById("itemList").appendChild(li);
-
-      input.value = "";
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
